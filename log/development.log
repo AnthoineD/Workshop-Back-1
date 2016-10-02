@@ -36,3 +36,271 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 234ms (Views: 223.4ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateShows (20161002144641)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "shows" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "venue" varchar, "description" varchar, "capacity" integer, "price" integer, "image" varchar, "date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161002144641"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-10-02 14:48:01 UTC], ["updated_at", 2016-10-02 14:48:01 UTC]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/shows" for ::1 at 2016-10-02 16:48:22 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ShowsController#index as HTML
+  Rendering shows/index.html.erb within layouts/application
+  [1m[36mShow Load (0.3ms)[0m  [1m[34mSELECT "shows".* FROM "shows"[0m
+  Rendered shows/index.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 449ms (Views: 426.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/shows" for ::1 at 2016-10-02 16:48:29 +0200
+Processing by ShowsController#index as HTML
+  Rendering shows/index.html.erb within layouts/application
+  [1m[36mShow Load (0.1ms)[0m  [1m[34mSELECT "shows".* FROM "shows"[0m
+  Rendered shows/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 30ms (Views: 27.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shows/new" for ::1 at 2016-10-02 16:50:46 +0200
+Processing by ShowsController#new as HTML
+  Rendering shows/new.html.erb within layouts/application
+  Rendered shows/_form.html.erb (71.2ms)
+  Rendered shows/new.html.erb within layouts/application (73.6ms)
+Completed 200 OK in 132ms (Views: 114.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/shows" for ::1 at 2016-10-02 16:52:08 +0200
+Processing by ShowsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HsbZvbRseUrG5MKsBjpOGVDnRsiViwpHnkMY0L/1l5QsO2yIs+GGMj1nAKufKocKxQefd6FPmaiQn9+M8P2xIQ==", "show"=>{"name"=>"Proj Aspi JTX", "venue"=>"Faure", "description"=>"Projection des aspis JTX", "capacity"=>"150", "price"=>"2", "image"=>"http://www.woueb.net/wp-content/uploads/2010/12/salle-de-concert-360.jpg", "date(1i)"=>"2016", "date(2i)"=>"10", "date(3i)"=>"6"}, "commit"=>"Create Show"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "shows" ("name", "venue", "description", "capacity", "price", "image", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Proj Aspi JTX"], ["venue", "Faure"], ["description", "Projection des aspis JTX"], ["capacity", 150], ["price", 2], ["image", "http://www.woueb.net/wp-content/uploads/2010/12/salle-de-concert-360.jpg"], ["date", Thu, 06 Oct 2016], ["created_at", 2016-10-02 14:52:08 UTC], ["updated_at", 2016-10-02 14:52:08 UTC]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/shows/1
+Completed 302 Found in 13ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/shows/1" for ::1 at 2016-10-02 16:52:08 +0200
+Processing by ShowsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mShow Load (0.2ms)[0m  [1m[34mSELECT  "shows".* FROM "shows" WHERE "shows"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering shows/show.html.erb within layouts/application
+  Rendered shows/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 55ms (Views: 44.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/shows" for ::1 at 2016-10-02 16:52:12 +0200
+Processing by ShowsController#index as HTML
+  Rendering shows/index.html.erb within layouts/application
+  [1m[36mShow Load (0.1ms)[0m  [1m[34mSELECT "shows".* FROM "shows"[0m
+  Rendered shows/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 25ms (Views: 22.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shows/new" for ::1 at 2016-10-02 16:52:15 +0200
+Processing by ShowsController#new as HTML
+  Rendering shows/new.html.erb within layouts/application
+  Rendered shows/_form.html.erb (6.6ms)
+  Rendered shows/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 46ms (Views: 33.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/shows" for ::1 at 2016-10-02 16:52:49 +0200
+Processing by ShowsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+jsBFh2zbKLiDLurqqQQ2BfBfv4cN1RmQzntf/YICVvIxrQjGj6T2hmPeawztNnLgiGnQSjzx4lN5SojuQAv7g==", "show"=>{"name"=>"Popote", "venue"=>"Jean Girette", "description"=>"Popote TDM", "capacity"=>"35", "price"=>"20", "image"=>"https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Troupe-de-marine-béret.jpg/220px-Troupe-de-marine-béret.jpg", "date(1i)"=>"2016", "date(2i)"=>"10", "date(3i)"=>"4"}, "commit"=>"Create Show"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "shows" ("name", "venue", "description", "capacity", "price", "image", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Popote"], ["venue", "Jean Girette"], ["description", "Popote TDM"], ["capacity", 35], ["price", 20], ["image", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Troupe-de-marine-béret.jpg/220px-Troupe-de-marine-béret.jpg"], ["date", Tue, 04 Oct 2016], ["created_at", 2016-10-02 14:52:49 UTC], ["updated_at", 2016-10-02 14:52:49 UTC]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/shows/2
+Completed 302 Found in 5ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/shows/2" for ::1 at 2016-10-02 16:52:49 +0200
+Processing by ShowsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mShow Load (0.1ms)[0m  [1m[34mSELECT  "shows".* FROM "shows" WHERE "shows"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering shows/show.html.erb within layouts/application
+  Rendered shows/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 45ms (Views: 41.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/shows" for ::1 at 2016-10-02 16:52:52 +0200
+Processing by ShowsController#index as HTML
+  Rendering shows/index.html.erb within layouts/application
+  [1m[36mShow Load (0.2ms)[0m  [1m[34mSELECT "shows".* FROM "shows"[0m
+  Rendered shows/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 32ms (Views: 30.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/shows" for ::1 at 2016-10-02 16:59:08 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ShowsController#index as HTML
+  Rendering shows/index.html.erb within layouts/application
+  [1m[36mShow Load (0.5ms)[0m  [1m[34mSELECT "shows".* FROM "shows"[0m
+  Rendered shows/index.html.erb within layouts/application (51.8ms)
+Completed 200 OK in 1201ms (Views: 1166.1ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/images/favicon.ico" for ::1 at 2016-10-02 16:59:10 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered collection of /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (20.6ms)
+  Rendered /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (8.8ms)
+  Rendering /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (109.5ms)
+Started GET "/shows" for ::1 at 2016-10-02 16:59:25 +0200
+Processing by ShowsController#index as HTML
+  Rendering shows/index.html.erb within layouts/application
+  [1m[36mShow Load (0.3ms)[0m  [1m[34mSELECT "shows".* FROM "shows"[0m
+  Rendered shows/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 82ms (Views: 79.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/path1" for ::1 at 2016-10-02 16:59:56 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/path1"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered collection of /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (2.8ms)
+  Rendered /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.8ms)
+  Rendering /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (86.5ms)
+Started GET "/shows" for ::1 at 2016-10-02 17:02:18 +0200
+Processing by ShowsController#index as HTML
+  Rendering shows/index.html.erb within layouts/application
+  [1m[36mShow Load (0.3ms)[0m  [1m[34mSELECT "shows".* FROM "shows"[0m
+  Rendered shows/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 86ms (Views: 82.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/images/favicon.ico" for ::1 at 2016-10-02 17:02:18 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered collection of /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (7.0ms)
+  Rendered /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendering /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/anthoinedusselier/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (101.2ms)
+Started GET "/shows.json" for ::1 at 2016-10-02 17:02:37 +0200
+Processing by ShowsController#index as JSON
+  Rendering shows/index.json.jbuilder
+  [1m[36mShow Load (0.2ms)[0m  [1m[34mSELECT "shows".* FROM "shows"[0m
+  Rendered shows/_show.json.jbuilder (0.9ms)
+  Rendered shows/_show.json.jbuilder (0.4ms)
+  Rendered shows/index.json.jbuilder (8.2ms)
+Completed 200 OK in 19ms (Views: 16.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/shows/1" for ::1 at 2016-10-02 17:03:01 +0200
+Processing by ShowsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mShow Load (0.6ms)[0m  [1m[34mSELECT  "shows".* FROM "shows" WHERE "shows"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering shows/show.html.erb within layouts/application
+  Rendered shows/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 81ms (Views: 60.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/shows/1.json" for ::1 at 2016-10-02 17:03:15 +0200
+Processing by ShowsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mShow Load (0.5ms)[0m  [1m[34mSELECT  "shows".* FROM "shows" WHERE "shows"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering shows/show.json.jbuilder
+  Rendered shows/_show.json.jbuilder (0.7ms)
+  Rendered shows/show.json.jbuilder (1.8ms)
+Completed 200 OK in 28ms (Views: 10.8ms | ActiveRecord: 0.5ms)
+
+
